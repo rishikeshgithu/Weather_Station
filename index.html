@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Received Data</title>
+    <style>
+        /* Add styling here */
+        body {
+            background-color: #FF9933; /* Saffron color */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #FFFFFF; /* White color */
+            margin-top: 20px;
+        }
+
+        #data-container {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        #temperature,
+        #humidity {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Received Data</h1>
+    <div id="data-container">
+        <p>Temperature: <span id="temperature">Waiting for data...</span>°C</p>
+        <p>Humidity: <span id="humidity">Waiting for data...</span>%</p>
+    </div>
+
+    <script>
+        // Function to refresh the page every 5 seconds
+        function refreshPage() {
+            location.reload();
+        }
+
+        // Set the page to refresh every 5 seconds
+        setTimeout(refreshPage, 5000);
+
+        // JavaScript code to extract query parameters from the URL
+        function getQueryVariable(variable) {
+            const query = window.location.search.substring(1);
+            const vars = query.split("&");
+            for (let i = 0; i < vars.length; i++) {
+                const pair = vars[i].split("=");
+                if (pair[0] === variable) {
+                    return decodeURIComponent(pair[1]);
+                }
+            }
+            return null;
+        }
+
+        // Get the temperature and humidity values from the URL
+        const temperature = getQueryVariable("temperature");
+        const humidity = getQueryVariable("humidity");
+
+        // Display the received data on the page
+        if (temperature !== null && humidity !== null) {
+            document.getElementById("temperature").textContent = temperature;
+            document.getElementById("humidity").textContent = humidity;
+        }
+    </script>
+</body>
+</html>
