@@ -3,21 +3,85 @@
 
 <head>
     <title>Weather Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        #container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            margin-top: 0;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            margin-bottom: 10px;
+        }
+        
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        p {
+            margin: 10px 0;
+        }
+        
+        #weather-icon {
+            font-size: 48px;
+            /* Adjust the size as needed */
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Weather Information</h1>
-    <form id="weather-form">
-        <label for="city-input">Enter City Name: </label>
-        <input type="text" id="city-input" placeholder="City Name">
-        <button type="submit">Get Weather</button>
-    </form>
-    <p>City: <span id="city"></span></p>
-    <p>Region: <span id="region"></span></p>
-    <p>Country: <span id="country"></span></p>
-    <p>Temperature (°C): <span id="temp_c"></span></p>
-    <p>Temperature (°F): <span id="temp_f"></span></p>
-    <p>Condition: <span id="condition"></span></p>
+    <div id="container">
+        <div id="weather-icon">☀️</div>
+        <!-- Replace with your desired icon -->
+        <h1>Weather Information</h1>
+        <form id="weather-form">
+            <label for="city-input">Enter City Name: </label>
+            <input type="text" id="city-input" placeholder="City Name">
+            <button type="submit">Get Weather</button>
+        </form>
+        <p>City: <span id="city"></span></p>
+        <p>Region: <span id="region"></span></p>
+        <p>Country: <span id="country"></span></p>
+        <p>Temperature (°C): <span id="temp_c"></span></p>
+        <p>Temperature (°F): <span id="temp_f"></span></p>
+        <p>Condition: <span id="condition"></span></p>
+    </div>
 
     <script>
         // JavaScript code to fetch data from the Python program
@@ -34,6 +98,7 @@
                     document.getElementById('temp_c').textContent = data.current.temp_c + " °C";
                     document.getElementById('temp_f').textContent = data.current.temp_f + " °F";
                     document.getElementById('condition').textContent = data.current.condition.text;
+                    // Set the icon here, e.g., document.getElementById('weather-icon').innerHTML = '<img src="icon.png" alt="Weather Icon">';
                 });
         });
     </script>
