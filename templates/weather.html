@@ -67,7 +67,7 @@
 
 <body>
     <div id="container">
-        <div id="weather-icon">☀️</div>
+        <img src="static/images/weather-icon.png" alt="weather-icon">
         <!-- Replace with your desired icon -->
         <h1>Weather Information</h1>
         <form id="weather-form">
@@ -98,7 +98,7 @@
                     document.getElementById('temp_c').textContent = data.current.temp_c + " °C";
                     document.getElementById('temp_f').textContent = data.current.temp_f + " °F";
                     document.getElementById('condition').textContent = data.current.condition.text;
-                    // Set the icon here, e.g., document.getElementById('weather-icon').innerHTML = '<img src="icon.png" alt="Weather Icon">';
+                    document.getElementById('weather-icon').innerHTML = '<img src="weather-icon.png">';
                 });
         });
     </script>
