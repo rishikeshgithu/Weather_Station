@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Information</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
             background-color: #f0f0f0;
             margin: 0;
@@ -23,6 +25,7 @@
         
         h1 {
             margin-top: 0;
+            color: #007BFF;
         }
         
         form {
@@ -32,6 +35,7 @@
         
         label {
             margin-bottom: 10px;
+            color: #333;
         }
         
         input {
@@ -56,34 +60,34 @@
         
         p {
             margin: 10px 0;
+            color: #333;
         }
         
         #weather-icon {
             font-size: 48px;
-            /* Adjust the size as needed */
+            margin-top: 10px;
         }
     </style>
 </head>
 
 <body>
     <div id="container">
-        <img src="static/images/weather-icon.png" alt="weather-icon">
+        <img src="static/images/weather-icon.png" alt="weather-icon" id="weather-icon">
         <!-- Replace with your desired icon -->
         <h1>Weather Information</h1>
         <form id="weather-form">
-            <label for="city-input">Enter City Name: </label>
+            <label for="city-input">Enter City Name:</label>
             <input type="text" id="city-input" placeholder="City Name">
             <button type="submit">Get Weather</button>
         </form>
-        <p>City: <span id="city"></span></p>
-        <p>Region: <span id="region"></span></p>
-        <p>Country: <span id="country"></span></p>
-        <p>Temperature (°C): <span id="temp_c"></span></p>
-        <p>Temperature (°F): <span id="temp_f"></span></p>
-        <p>Condition: <span id="condition"></span></p>
-
-
-
+        <div id="weather-info">
+            <p>City: <span id="city"></span></p>
+            <p>Region: <span id="region"></span></p>
+            <p>Country: <span id="country"></span></p>
+            <p>Temperature (°C): <span id="temp_c"></span></p>
+            <p>Temperature (°F): <span id="temp_f"></span></p>
+            <p>Condition: <span id="condition"></span></p>
+        </div>
     </div>
 
     <script>
